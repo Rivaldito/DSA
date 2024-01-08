@@ -43,11 +43,10 @@ class LinkedList:
         return True
 
     def pop(self):
-
         if self.length == 0:
             return None
         temp = self.head
-        pre = self.head 
+        pre = self.head
         while(temp.next):
             pre = temp
             temp = temp.next
@@ -57,7 +56,7 @@ class LinkedList:
         if self.length == 0:
             self.head = None
             self.tail = None
-        return temp.value
+        return temp
     
     def prepend(self, value):
         new_node = Node(value)
@@ -67,6 +66,7 @@ class LinkedList:
         else:
             new_node.next = self.head
             self.head = new_node
+            self.length += 1
         return True
     
     def pop_first(self):
@@ -125,8 +125,33 @@ class LinkedList:
         self.length -= 1
         return temp
     
-    def reverse():
-        pass
+    def reverse(self):
+        temp = self.head
+        self.head = self.tail
+        self.tail = temp
+        after = temp.next
+        before = None
+        for _ in range(self.length):
+            after = temp.next
+            temp.next = before
+            before = temp
+            temp = after
         
+    def find_middle_node(self):
         
-        
+        slow = self.head
+        fast = self.head.next
+
+        if slow == None or fast == None:
+            return slow
+
+        while fast is not None:
+
+            slow = slow.next
+            fast = fast.next
+            if fast == None:
+                return slow
+            else:
+                fast = fast.next
+
+        return slow
