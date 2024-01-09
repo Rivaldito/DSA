@@ -143,7 +143,7 @@ class LinkedList:
         fast = self.head.next
 
         if slow == None or fast == None:
-            return slow
+            return None
 
         while fast is not None:
 
@@ -153,5 +153,51 @@ class LinkedList:
                 return slow
             else:
                 fast = fast.next
-
         return slow
+    
+    def has_loop(self):
+        slow = self.head
+        fast = self.head
+
+        if self.head == None:
+            return False
+        while (slow != None and fast != None and fast.next != None):
+            slow = slow.next
+            fast = fast.next.next
+            if(slow == fast):
+                return True
+        return False
+
+    def partition_list(self, x):
+
+        if self.head == None:
+            return None
+        
+        temp = self.head
+
+        while temp:
+            if temp.value < x
+
+            temp = temp.next
+            pass
+
+        
+
+        pass    
+
+
+
+
+
+def find_kth_from_end(ll, k):
+    slow = fast = ll.head   
+    for _ in range(k):
+        if fast is None:
+            return None
+        fast = fast.next
+ 
+    while fast:
+        slow = slow.next
+        fast = fast.next
+        
+    return slow
