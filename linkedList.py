@@ -172,20 +172,32 @@ class LinkedList:
 
         if self.head == None:
             return None
-        
         temp = self.head
 
-        while temp:
-            if temp.value < x
+        dummy_one = Node(0)
+        dummy_two = Node(0)
 
-            temp = temp.next
-            pass
+        prev_one = dummy_one
+        prev_two = dummy_two
 
-        
+        current = self.head
 
-        pass    
+        while current:
+            if current.value < x:
+                prev_one.next = current
+                prev_one = current
+            else:
+                prev_two.next = current
+                prev_two = current
+            current = current.next
 
+        prev_one.next = None
+        prev_two.next = None
 
+        prev_one.next = dummy_two.next
+        dummy_one = dummy_one.next
+
+        return dummy_one
 
 
 
