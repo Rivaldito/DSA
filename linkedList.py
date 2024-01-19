@@ -199,6 +199,31 @@ class LinkedList:
 
         return dummy_one
 
+    def remove_duplicates(self):
+        if self.head == None:
+            return None
+        
+        values = set()
+        previus = None
+        current = self.head
+
+        while current:
+
+            if current.value in values:
+                previus.next = current.next
+                self.length -= 1
+            else:
+                values.add(current.value)
+                previus = current
+            current = current.next
+    
+    def binary_to_decimal(self):
+        num = 0
+        current = self.head
+        while current:
+            num = num * 2 + current.value
+            current = current.next
+        return num
 
 
 def find_kth_from_end(ll, k):
